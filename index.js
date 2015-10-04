@@ -13,13 +13,13 @@ var dioder = require('dioder')({
 app.get('/api/:color', function(req, res){
 	switch (req.params.color) {
 		case 'red':
-			dioder.animateTo('#ff0000');
+			dioder.animateTo('#f00');
 			break;
 		case 'green':
-			dioder.animateTo('#ff0000');
+			dioder.animateTo('#0f0');
 			break;
 		case 'blue':
-			dioder.animateTo('#ff0000');
+			dioder.animateTo('#00f');
 			break;
 	}
 	res.json({'Color': req.params.color});
