@@ -52,4 +52,13 @@ app.get('/api/off', function(req, res) {
 	});
 });
 
+/*app.post('/api/setAnimationDuration', function(req, res) {
+	console.log(res);
+	res.json({'AnimationDuration': animationDuration});
+});*/
+
+app.get('/api/getAnimationDuration', function(req, res) {
+	res.json({'AnimationDuration': animationDuration});
+});
+
 app.listen(PORT);
