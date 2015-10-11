@@ -1,6 +1,8 @@
-var express = require('express');
-var fs 		= require('fs');
-var app		= express();
+var express    = require('express');
+var bodyParser = require('body-parser');
+var fs 		   = require('fs');
+var app		   = express();
+var jsonParser = bodyParser.json();
 
 //Listen on the specified Port
 var PORT = process.env.PORT || 8080;
@@ -52,10 +54,13 @@ app.get('/api/off', function(req, res) {
 	});
 });
 
-/*app.post('/api/setAnimationDuration', function(req, res) {
-	console.log(res);
-	res.json({'AnimationDuration': animationDuration});
-});*/
+app.post('/api/setAnimationDuration', jsonParser, function (req, res) {
+  if (!req.body) {
+      return res.sendStatus(400);
+  }
+  animationDuration = req.body.AnimationDuration;
+  res.json({'AnimationDuration': animationDuration});
+})
 
 app.get('/api/getAnimationDuration', function(req, res) {
 	res.json({'AnimationDuration': animationDuration});
