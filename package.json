@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/jannickfahlbusch/DioderAPI#readme",
   "dependencies": {
+    "body-parser": "^1.14.1",
     "dioder": "0.0.5",
     "express": "^4.13.3"
   }
