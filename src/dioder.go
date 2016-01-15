@@ -29,7 +29,7 @@ func FloatToString(floatValue float64) string {
 func setColor(channel string, value float64) error {
 	piBlasterCommand := channel + "=" + FloatToString(value) + "\n"
 
-	file, error := os.OpenFile("/tmp/devPiBlaster", os.O_RDWR, os.ModeNamedPipe)
+	file, error := os.OpenFile("/dev/pi-blaster", os.O_RDWR, os.ModeNamedPipe)
 
 	if error != nil {
 		panic(error)
