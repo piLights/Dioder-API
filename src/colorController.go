@@ -29,11 +29,17 @@ func ColorController(w http.ResponseWriter, r *http.Request) {
 	switch color {
 		case "red":
 			SetRed(255)
+			SetGreen(0)
+			SetBlue(0)
 		break;
 		case "green":
+			SetRed(0)
 			SetGreen(255)
+			SetBlue(0)
 		break;
 		case "blue":
+			SetRed(0)
+			SetGreen(0)
 			SetBlue(255)
 		break;
 
