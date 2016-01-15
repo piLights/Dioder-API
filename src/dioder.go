@@ -68,13 +68,31 @@ func setChannelInteger(value int, channel string) error {
 }
 
 func SetRed(value int) error {
+	// Do nothing if the new value is the same as the old
+	if value == CURRENT_RED {
+		return nil
+	}
+
+	CURRENT_RED = value;
 	return setChannelInteger(value, REDPIN)
 }
 
 func SetGreen(value int) error {
+	// Do nothing if the new value is the same as the old
+	if value == CURRENT_GREEN {
+		return nil
+	}
+
+	CURRENT_GREEN = value;
 	return setChannelInteger(value, GREENPIN)
 }
 
 func SetBlue(value int) error {
+	// Do nothing if the new value is the same as the old
+	if value == CURRENT_BLUE {
+		return nil
+	}
+
+	CURRENT_BLUE = value;
 	return setChannelInteger(value, BLUEPIN)
 }
