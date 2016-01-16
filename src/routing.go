@@ -1,16 +1,17 @@
 package main
 
 import (
-	"net/http"
-	"github.com/gorilla/mux"
 	"fmt"
+	"net/http"
+
+	"github.com/gorilla/mux"
 )
 
 type Route struct {
-	Name	string
-	Method	string
-	Pattern	string
-	HandlerFunc	http.HandlerFunc
+	Name        string
+	Method      string
+	Pattern     string
+	HandlerFunc http.HandlerFunc
 }
 
 type Routes []Route
@@ -32,20 +33,20 @@ func NewRouter() *mux.Router {
 	return router
 }
 
-var routes = Routes {
-	Route {
+var routes = Routes{
+	Route{
 		"Color",
 		"GET",
 		"/color/{color}",
-		ColorController,
+		colorController,
 	},
-	/*Route {
+	Route{
 		"Hex",
 		"GET",
 		"/hex/{hex}",
-		HexColorController,
+		hexColorController,
 	},
-	Route {
+	/*Route {
 		"RGB",
 		"GET",
 		"/rgb/{rgb}",

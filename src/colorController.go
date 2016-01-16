@@ -3,18 +3,15 @@ package main
 import (
 	"fmt"
 	"net/http"
+
 	"github.com/gorilla/mux"
+	"github.com/piLights/dioder"
 )
 
-type colorResponse struct {
-	Message	string
-	Color	string
-}
-
-func ColorController(w http.ResponseWriter, r *http.Request) {
+func colorController(w http.ResponseWriter, r *http.Request) {
 	color := mux.Vars(r)["color"]
 
-	responseMessage := colorResponse {"Color successfully activated",color}
+	responseMessage := colorResponse{"Color successfully activated", color}
 
 	message, error := GenerateResponseMessage(responseMessage)
 
@@ -27,21 +24,14 @@ func ColorController(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, message)
 
 	switch color {
-		case "red":
-			SetRed(255)
-			SetGreen(0)
-			SetBlue(0)
-		break;
-		case "green":
-			SetRed(0)
-			SetGreen(255)
-			SetBlue(0)
-		break;
-		case "blue":
-			SetRed(0)
-			SetGreen(0)
-			SetBlue(255)
-		break;
-
+	case "red":
+		dioder.SetAll(255, 0, 0)
+		break
+	case "green":
+		dioder.SetAll(0, 255, 0)
+		break
+	case "blue":
+		dioder.SetAll(0, 0, 255)
+		break
 	}
 }

@@ -4,6 +4,11 @@ import (
 	"encoding/json"
 )
 
+type colorResponse struct {
+	Message string
+	Color   string
+}
+
 func GenerateResponseMessage(v interface{}) (string, error) {
 	message, error := json.Marshal(v)
 
