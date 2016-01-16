@@ -46,10 +46,10 @@ var routes = Routes{
 		"/hex/{hex}",
 		hexColorController,
 	},
-	/*Route {
+	/*Route{
 		"RGB",
 		"GET",
-		"/rgb/{rgb}",
-		RGBColorController,
+		"/rgb/{red}/{green}/{blue}",
+		rgbColorController,
 	},*/
 }
