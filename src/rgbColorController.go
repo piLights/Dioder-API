@@ -1,8 +1,9 @@
 package main
 
-/*import (
+import (
 	"fmt"
 	"net/http"
+	"strconv"
 
 	"github.com/gorilla/mux"
 	"github.com/piLights/dioder"
@@ -13,7 +14,7 @@ func rgbColorController(w http.ResponseWriter, r *http.Request) {
 	greenValue := mux.Vars(r)["green"]
 	blueValue := mux.Vars(r)["blue"]
 
-	responseColorString := r + ":" + g + ":" + b
+	responseColorString := redValue + ":" + greenValue + ":" + blueValue
 	responseMessage := colorResponse{"Color successfully activated", responseColorString}
 
 	message, error := GenerateResponseMessage(responseMessage)
@@ -24,7 +25,10 @@ func rgbColorController(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	dioder.SetAll(uint8(redValue), uint8(greenValue), uint8(blueValue))
+	redUint, _ := strconv.Atoi(redValue)
+	greenUint, _ := strconv.Atoi(greenValue)
+	blueUint, _ := strconv.Atoi(blueValue)
+
+	dioder.SetAll(uint8(redUint), uint8(greenUint), uint8(blueUint))
 	fmt.Fprintf(w, message)
 }
-*/
